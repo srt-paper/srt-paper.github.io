@@ -190,6 +190,11 @@
       <!-- Abstract -->
       <div class="abstract">
         <div class="row">
+          <div class="col text-center">
+	    <img src="data/teaser.svg" alt="Model Overview" width="500px"/>
+          </div>
+        </div>
+        <div class="row">
           <div class="col">
             <p class="title">
               <h3>Abstract</h3>
@@ -198,19 +203,19 @@
         </div>
         <div class="row">
           <div class="col">
-            <p class="text">
+		  <p class="text">
 A classical problem in computer vision is to infer a 3D scene representation from few images that can be used to render novel views at interactive rates.
 Previous work focuses on reconstructing pre-defined 3D representations, e.g.textured meshes, or implicit representations, e.g. radiance fields, and often requires input images with precise camera poses and long processing times for each novel scene.
-            </p>
-            <p class="text">
+		  </p>
+		  <p class="text">
 In this work, we propose the Scene Representation Transformer (SRT), a method which processes posed or unposed RGB images of a new area, infers a “set-latent scene representation”, and synthesises novel views, all in a single feed-forward pass.
 To calculate the scene representation, we propose a generalization of the Vision Transformer to sets of images, enabling global information integration, and hence 3D reasoning.
 An efficient decoder transformer parameterizes the light field by attending into the scene representation to render novel views. Learning is supervised end-to-end by minimizing a novel-view reconstruction error.
-            </p>
-            <p class="text">
+		  </p>
+		  <p class="text">
 We show that this method outperforms recent baselines in terms of PSNR and speed on synthetic datasets, including a new dataset created for the paper.
 Further, we demonstrate that SRT scales to support interactive visualization and semantic segmentation of real-world outdoor environments using Street View imagery.
-            </p>
+		  </p>
           </div>
         </div>
       </div>
