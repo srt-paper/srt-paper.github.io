@@ -809,3 +809,8 @@ blockquote {
     margin-top: 0.0em;
     text-align: center;
 }
+
+.homelink{
+    text-align: center;
+    margin-bottom: 0.5em;
+}

@@ -1,0 +1,300 @@
+
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8"/>
+    <meta name="viewport"
+          content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <link rel="stylesheet"
+          href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css"
+          integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk"
+          crossorigin="anonymous">
+    <title>Scene Representation Transformer</title>
+    <style>
+      .paper-title {
+        margin-top: 2em;
+        margin-bottom: 2em;
+      }
+      .authors-list .name {
+        font-size: 0.9em;
+        font-weight: bold;
+      }
+      .authors-list .affiliation {
+        font-size: 0.7em;
+      }
+      .paper-link a {
+        font-size: 2em;
+      }
+      .short-videos video {
+        padding: 1em;
+      }
+      .content-block {
+        padding-left: 2em;
+        padding-right: 2em;
+        padding-bottom: 2em;
+      }
+      .overview-video {
+        background-color: rgb(240,240,240);
+      }
+      .overview-video .video-col {
+        margin-left: 2em;
+        margin-right: 2em;
+      }
+      .video-row {
+        margin-top: 1em;
+        margin-bottom: 1em;
+      }
+      .geometric-consistency {
+        background-color: rgb(240,240,240);
+      }
+      .citation .description {
+        font-family: "Courier",monospace;
+        font-size: 16px;
+        white-space: pre;
+        text-align: left;
+      }
+      .additional-links {
+        background-color: #f4f4f4;
+      }
+    </style>
+  </head>
+
+  <body>
+    <div class="container">
+      <div class="paper-title">
+        <!-- title -->
+        <div class="row">
+          <div class="col">
+		  <h1 class="name text-center">Scene Representation Transformer</h1>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col">
+            <p class="long-name text-center">
+		Geometry-Free Novel View Synthesis Through Set-Latent Scene Representations
+            </p>
+          </div>
+        </div>
+
+      <!-- Authors -->
+      <div class="authors-list">
+        <div class="row">
+          <div class="col">
+            <p class="name text-center">
+            <a href="http://tbd.com/"
+               target="_blank" >Mehdi S.M. Sajjadi</a>
+            </p>
+            <p class="affiliation text-center">Google Research, Berlin</p>
+          </div>
+          <div class="col">
+            <p class="name text-center">
+            <a href="http://tbd.com/"
+               target="_blank" >Henning Meyer</a>
+            </p>
+            <p class="affiliation text-center">Google Research, Berlin</p>
+          </div>
+          <div class="col">
+            <p class="name text-center">
+            <a href="http://tbd.com/"
+               target="_blank" >Etienne Pot</a>
+            </p>
+            <p class="affiliation text-center">Google Research, Berlin</p>
+          </div>
+          <div class="col">
+            <p class="name text-center">
+            <a href="http://tbd.com/"
+               target="_blank" >Urs Bergmann</a>
+            </p>
+            <p class="affiliation text-center">Google Research, Berlin</p>
+          </div>
+          <div class="col">
+            <p class="name text-center">
+            <a href="http://tbd.com/"
+               target="_blank" >Klaus Greff</a>
+            </p>
+            <p class="affiliation text-center">Google Research, Berlin</p>
+          </div>
+          <div class="col">
+            <p class="name text-center">
+            <a href="http://tbd.com/"
+               target="_blank" >Noha Radwan</a>
+            </p>
+            <p class="affiliation text-center">Google Research, Z&uuml;rich</p>
+          </div>
+          <div class="col">
+            <p class="name text-center">
+            <a href="http://tbd.com/"
+               target="_blank" >Suhani Vora</a>
+            </p>
+            <p class="affiliation text-center">Google Research, Mountain View</p>
+          </div>
+          <div class="col">
+            <p class="name text-center">
+            <a href="http://tbd.com/"
+               target="_blank" >Mario Lucic (fix accents)</a>
+            </p>
+            <p class="affiliation text-center">Google Research, Z&uuml;rich</p>
+          </div>
+          <div class="col">
+            <p class="name text-center">
+            <a href="http://tbd.com/"
+               target="_blank" >Daniel Duckworth</a>
+            </p>
+            <p class="affiliation text-center">Google Research, Berlin</p>
+          </div>
+          <div class="col">
+            <p class="name text-center">
+            <a href="http://tbd.com/"
+               target="_blank" >Alexey Dosovitskiy</a>
+            </p>
+            <p class="affiliation text-center">Work done while at Google Research, Berlin</p>
+          </div>
+          <div class="col">
+            <p class="name text-center">
+            <a href="http://tbd.com/"
+               target="_blank" >Jakob Uszkoreit</a>
+            </p>
+            <p class="affiliation text-center">Work done while at Google Research, Berlin</p>
+          </div>
+          <div class="col">
+            <p class="name text-center">
+            <a href="http://tbd.com/"
+               target="_blank" >Tom Funhouser</a>
+            </p>
+            <p class="affiliation text-center">Google Research, Mountain View</p>
+          </div>
+          <div class="col">
+            <p class="name text-center">
+            <a href="http://tbd.com/"
+               target="_blank" >Andrea Tagliasacchi</a>
+            </p>
+            <p class="affiliation text-center">Google Research, Toronto</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- Paper link -->
+      <div class="paper-link">
+        <div class="row">
+          <div class="col">
+            <p class="text-center">
+              <a href="https://arxiv.org/abs/fixme">[Paper]</a>
+            </p>
+          </div>
+        </div>
+      </div>
+
+      <!-- Short videos -->
+      <div class="content-block short-videos">
+        <div class="row">
+
+          <!-- NMR -->
+          <div class="col">
+            <div class="row">
+              <div class="col embed-responsive embed-responsive-4by3">
+              </div>
+            </div>
+            <div class="row">
+              <div class="col">
+                <p class="text-center">ShapeNet (NMR)</p>
+              </div>
+            </div>
+          </div>
+
+          <!-- MSN -->
+          <div class="col">
+            <div class="row">
+              <div class="col embed-responsive embed-responsive-4by3">
+              </div>
+            </div>
+            <div class="row">
+              <div class="col">
+                <p class="text-center">MultiShapeNet (MSN)</p>
+              </div>
+            </div>
+          </div>
+
+          <!-- Street View -->
+          <div class="col">
+            <div class="row">
+              <div class="col embed-responsive embed-responsive-4by3">
+              </div>
+            </div>
+            <div class="row">
+              <div class="col">
+                <p class="text-center">Street View</p>
+              </div>
+            </div>
+          </div>
+
+        </div>
+      </div>
+
+      <!-- Abstract -->
+      <div class="content-block overview-video">
+        <div class="row">
+          <div class="col">
+            <p class="title">
+              <h3>Abstract</h3>
+            </p>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col">
+            <p class="description">
+	    fixme
+            </p>
+          </div>
+        </div>
+      </div>
+
+      <!-- Citation -->
+      <div class="content-block citation">
+        <div class="row">
+          <div class="col">
+            <p class="title">
+              <h3>Citation</h3>
+            </p>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col">
+            <p class="description">
+	    fixme
+            </p>
+          </div>
+        </div>
+      </div>
+
+      <!-- Links -->
+      <div class="content-block additional-links">
+        <div class="row">
+          <div class="col">
+            <p class="title">
+              <h3>Additional links</h3>
+            </p>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col">
+            <p class="description">
+	    fixme
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Bootstrap bits -->
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"
+            integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj"
+            crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js"
+            integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo"
+            crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js"
+            integrity="sha384-OgVRvuATP1z7JjHLkuOU7Xw704+h835Lr+6QL9UvYjZE3Ipu6Tp75j7Bh/kR0JKI"
+            crossorigin="anonymous"></script>
+  </body>
+</html>
+
