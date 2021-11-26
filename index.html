@@ -26,7 +26,7 @@
         font-size: 1.0em;
       }
       .paper-link a {
-        font-size: 1.6em;
+        font-size: 1.5em;
       }
       .short-videos video {
         padding: 1em;
@@ -72,7 +72,7 @@
       }
       .teaser {
 	      width: 100%;
-	      max-width: 450px;
+	      max-width: 520px;
       }
     </style>
   </head>
@@ -199,6 +199,20 @@
         </div>
       </div>
 
+      <!-- Teaser -->
+      <div class="content-block">
+        <div class="row">
+          <div class="col text-center">
+	    <img src="data/teaser.svg" alt="Model Overview" class="teaser"/>
+          </div>
+		  <p class="text">
+A classical problem in computer vision is to infer a 3D scene representation from few images that can be used to render novel views at interactive rates.
+Previous work focuses on reconstructing pre-defined 3D representations, e.g.textured meshes, or implicit representations, e.g. radiance fields, and often requires input images with precise camera poses and long processing times for each novel scene.
+		  </p>
+        </div>
+      </div>
+
+
       <!-- Supplementary videos -->
       <div class="content-block additional-links">
         <div class="row">
@@ -210,27 +224,27 @@
         </div>
         <div class="row textcommumn">
           <div class="col">
-            <a href="data/nmr.html">
+            <a href="data/streetview.html">
+              <img src="data/streetview/image1.gif">
               <p>
-                ShapeNet (NMR)
+                StreetView
               </p>
-              <img src="data/home/shapenet.gif">
             </a>
           </div>
           <div class="col">
             <a href="data/multi_shapenet.html">
+              <img src="data/home/msn.gif">
               <p>
                 MultiShapeNet (MSN)
               </p>
-              <img src="data/home/msn.gif">
             </a>
           </div>
           <div class="col">
-            <a href="data/streetview.html">
+            <a href="data/nmr.html">
+              <img src="data/home/shapenet.gif">
               <p>
-                StreetView
+                ShapeNet (NMR)
               </p>
-              <img src="data/streetview/image1.gif">
             </a>
           </div>
         </div>
@@ -260,11 +274,6 @@ An efficient decoder transformer parameterizes the light field by attending into
 We show that this method outperforms recent baselines in terms of PSNR and speed on synthetic datasets, including a new dataset created for the paper.
 Further, we demonstrate that SRT scales to support interactive visualization and semantic segmentation of real-world outdoor environments using Street View imagery.
 		  </p>
-          </div>
-        </div>
-        <div class="row">
-          <div class="col text-center">
-	    <img src="data/teaser.svg" alt="Model Overview" class="teaser"/>
           </div>
         </div>
       </div>
