@@ -9,6 +9,12 @@
           rel="stylesheet"
 	  integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3"
 	  crossorigin="anonymous">
+
+    <link rel="stylesheet"
+    href="https://cdn.jsdelivr.net/gh/highlightjs/cdn-release@11.4.0/build/styles/default.min.css">
+    <script src="https://cdn.jsdelivr.net/gh/highlightjs/cdn-release@11.4.0/build/highlight.min.js"></script>
+    <script>hljs.highlightAll();</script>
+
     <title>Scene Representation Transformer</title>
     <style>
       .paper-title {
@@ -50,8 +56,11 @@
       .geometric-consistency {
         background-color: rgb(240,240,240);
       }
-      .citation {
+      .dataset {
         background-color: rgb(240,240,240);
+      }
+      .citation {
+        /* background-color: rgb(240,240,240); */
       }
       .citation .description {
         font-family: "Courier",monospace;
@@ -194,7 +203,7 @@
             <p class="text-center">
 	      <a href="https://arxiv.org/abs/2111.13152">[Paper]</a>
 		    &nbsp;&nbsp;&nbsp;&nbsp;
-	      <a title="Available soon">[Dataset]</a>
+	      <a href="#dataset">[Dataset]</a>
             </p>
           </div>
         </div>
@@ -280,6 +289,61 @@ Further, we demonstrate that SRT scales to support interactive visualization and
       </div>
 
       <!-- Citation -->
+      <div class="content-block dataset", id="dataset">
+        <div class="row">
+          <div class="col">
+            <p class="title">
+              <h3>Dataset</h3>
+            </p>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col">
+            <p class="text">
+            The dataset is publicly available:
+            </p>
+            <ul>
+              <li>Location: <a href="https://console.cloud.google.com/storage/browser/kubric-public/tfds/multi_shapenet_frames/">gs://kubric-public/tfds/multi_shapenet_frames/</a></li>
+              <li>Format: tf-record</li>
+              <li>Dataset size: 344.77 GiB</li>
+            </ul>
+            <p>
+              Copy the data locally with <a href="https://cloud.google.com/storage/docs/gsutil_install">gsutil</a>:
+            </p>
+            <pre><code class="language-bash">
+DATA_DIR=~/tensorflow_datasets/
+mkdir $DATA_DIR
+gsutil -m cp -r gs://kubric-public/tfds/multi_shapenet_frames/ $DATA_DIR
+</code></pre>
+            <p>
+              Once downloaded, you can plug the data directly into your model using <a href="https://github.com/google-research/sunds">SunDs</a>:
+            </p>
+            <pre><code class="language-python">
+import sunds
+
+builder = sunds.builder('multi_shapenet')
+print(builder.frame_builder.info)  # Print structure of the dataset
+
+ds = builder.as_dataset(
+    split='train', 
+    task=sunds.task.Nerf(yield_mode='stacked'),
+)
+for ex in ds.as_numpy_iterator():  # Convert TF -> numpy
+    # Each example is a scene containing 10 images
+    ray_origins = ex['ray_origins']  # f32[10 128 128 3]
+    ray_directions = ex['ray_directions']  # f32[10 128 128 3]
+    color_images = ex['color_images']  # ui8[10 128 128 3]
+</code></pre>
+            <code class="python">
+            </code>
+            <p>
+              See the <a href="https://github.com/google-research/sunds">documentation</a> for more info.
+            </p>
+          </div>
+        </div>
+      </div>
+
+      <!-- Citation -->
       <div class="content-block citation">
         <div class="row">
           <div class="col">
@@ -291,14 +355,14 @@ Further, we demonstrate that SRT scales to support interactive visualization and
         <div class="row">
           <div class="col">
             <p class="description">
-	    @article{srt_arxiv,
-	             title={{Scene Representation Transformer: Geometry-Free Novel View Synthesis Through Set-Latent Scene Representations}},
-		     author={Mehdi S. M. Sajjadi and Henning Meyer and Etienne Pot and Urs Bergmann and Klaus Greff and Noha Radwan and Suhani Vora and Mario Lucic and Daniel Duckworth and Alexey Dosovitskiy and Jakob Uszkoreit and Thomas Funkhouser and Andrea Tagliasacchi},
-		     journal={arXiv preprint arXiv:2111.13152},
-		     url={https://arxiv.org/abs/arXiv:2111.13152},
-		     year={2021}
-	    }
-	    </p>
+            @article{srt_arxiv,
+                    title={{Scene Representation Transformer: Geometry-Free Novel View Synthesis Through Set-Latent Scene Representations}},
+              author={Mehdi S. M. Sajjadi and Henning Meyer and Etienne Pot and Urs Bergmann and Klaus Greff and Noha Radwan and Suhani Vora and Mario Lucic and Daniel Duckworth and Alexey Dosovitskiy and Jakob Uszkoreit and Thomas Funkhouser and Andrea Tagliasacchi},
+              journal={arXiv preprint arXiv:2111.13152},
+              url={https://arxiv.org/abs/arXiv:2111.13152},
+              year={2021}
+            }
+            </p>
           </div>
         </div>
       </div>
