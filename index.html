@@ -300,7 +300,7 @@ Further, we demonstrate that SRT scales to support interactive visualization and
         <div class="row">
           <div class="col">
             <p class="text">
-            Our MultiShapeNet (MSN) dataset is publicly available:
+            Our MultiShapeNet (MSN) dataset is publicly available. <b>Try it in <a href="https://colab.research.google.com/github/srt-paper/srt-paper.github.io/blob/main/multi_shapenet.ipynb">our colab</a></b>:
             </p>
             <ul>
               <li>Location: <a href="https://console.cloud.google.com/storage/browser/kubric-public/tfds/multi_shapenet_frames/">gs://kubric-public/tfds/multi_shapenet_frames/</a></li>
@@ -312,7 +312,9 @@ Further, we demonstrate that SRT scales to support interactive visualization and
               <li>Dataset size: 344.77 GiB</li>
             </ul>
             <p>
-              Copy the data locally with <a href="https://cloud.google.com/storage/docs/gsutil_install">gsutil</a>:
+              You can read the data directly from <code>data_dir='gs://kubric-public/tfds'</code>. However, for best 
+              performance, it's recommended to copy the data locally with
+              <a href="https://cloud.google.com/storage/docs/gsutil_install">gsutil</a>:
             </p>
             <pre><code class="language-bash">
 DATA_DIR=~/tensorflow_datasets/
@@ -342,6 +344,7 @@ for ex in ds.as_numpy_iterator():  # Convert TF -> numpy
             </code>
             <p>
               See the <a href="https://github.com/google-research/sunds">documentation</a> for more info.
+              Play with the dataset in <a href="https://colab.research.google.com/github/srt-paper/srt-paper.github.io/blob/main/multi_shapenet.ipynb">our colab</a></b>
             </p>
           </div>
         </div>
