@@ -203,7 +203,7 @@
       </div>
     </div>
 
-      <!-- Paper link -->
+      <!-- Links -->
       <div class="paper-link">
         <div class="row">
           <div class="col">
@@ -211,6 +211,8 @@
 	      <a href="https://arxiv.org/abs/2111.13152">[Paper]</a>
 		    &nbsp;&nbsp;&nbsp;&nbsp;
 	      <a href="#dataset">[Dataset]</a>
+		    &nbsp;&nbsp;&nbsp;&nbsp;
+	      <a href="#code">[Code]</a>
             </p>
           </div>
         </div>
@@ -295,7 +297,7 @@ Further, we demonstrate that SRT scales to support interactive visualization and
         </div>
       </div>
 
-      <!-- Citation -->
+      <!-- Dataset -->
       <div class="content-block dataset", id="dataset">
         <div class="row">
           <div class="col">
@@ -355,7 +357,69 @@ for ex in ds.as_numpy_iterator():  # Convert TF -> numpy
         </div>
       </div>
 
-      <!-- Citation -->
+      <!-- Code -->
+      <div class="content-block code", id="code">
+        <div class="row">
+          <div class="col">
+            <p class="title">
+              <h3>Code</h3>
+            </p>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col">
+            <p class="text">
+            There exists an <b>independent third-party</b> implementation of SRT at <a href="https://github.com/stelzner/srt">https://github.com/stelzner/srt</a>.
+            While it appears to nearly match our results, please note that <b>we have not vetted this implementation yet</b>.
+            </p>
+            <ul>
+              <li>Location: <a href="https://console.cloud.google.com/storage/browser/kubric-public/tfds/multi_shapenet_frames/">gs://kubric-public/tfds/multi_shapenet_frames/</a></li>
+              <li>Format: tf-record</li>
+              <li>Train split: 1.047.815 scenes</li>
+              <li>Validation split: 104.657 scenes</li>
+              <li>Test split: 10.000 scenes</li>
+              <li>Dataset size: 344.77 GiB</li>
+            </ul>
+            <p>
+              You can read the data directly from <code>data_dir='gs://kubric-public/tfds'</code>. However, for best 
+              performance, it's recommended to copy the data locally with
+              <a href="https://cloud.google.com/storage/docs/gsutil_install">gsutil</a>:
+            </p>
+            <pre><code class="language-bash">
+DATA_DIR=~/tensorflow_datasets/
+mkdir $DATA_DIR
+gsutil -m cp -r gs://kubric-public/tfds/multi_shapenet_frames/ $DATA_DIR
+</code></pre>
+            <p>
+              Once downloaded, you can plug the data directly into your model using <a href="https://github.com/google-research/sunds">SunDs</a>:
+            </p>
+            <pre><code class="language-python">
+import sunds
+
+builder = sunds.builder('multi_shapenet')
+print(builder.frame_builder.info)  # Print structure of the dataset
+
+ds = builder.as_dataset(
+    split='train', 
+    task=sunds.task.Nerf(yield_mode='stacked'),
+)
+for ex in ds.as_numpy_iterator():  # Convert TF -> numpy
+    # Each example is a scene containing 10 images
+    ray_origins = ex['ray_origins']  # f32[10 128 128 3]
+    ray_directions = ex['ray_directions']  # f32[10 128 128 3]
+    color_images = ex['color_images']  # ui8[10 128 128 3]
+</code></pre>
+            <code class="python">
+            </code>
+            <p>
+              Inspect the dataset in <a href="https://colab.research.google.com/github/srt-paper/srt-paper.github.io/blob/main/multi_shapenet.ipynb">our interactive Colab</a>.</b>
+            </p>
+          </div>
+        </div>
+      </div>
+
+
+  <!-- Citation -->
       <div class="content-block citation">
         <div class="row">
           <div class="col">
